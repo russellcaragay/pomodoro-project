@@ -25,11 +25,21 @@
         <section class="timer-section ">
             <div class="main-timer">
                 <h2 id="time" class="timer-time">50:00</h2>
-                <button>TRY</button>
+                <button class="start-btn">START</button>
             </div>
             <nav>
-                <div></div>
-                <div></div>
+                <!-- For music and timer restart -->
+                <div class="config-restart">
+                    <button class="config-btn"><i class="fa-solid fa-arrow-rotate-right "></i></button>
+                    <button class="config-btn"><i class="fa-solid fa-volume-off "></i></button>
+                </div>
+
+                <!-- For pomodoro focus and rest time -->
+                <div class="config-timer">
+                    <button class="timer-btn">25:05</button>
+                    <button class="timer-btn rest-btn">REST</button>
+                    <button class="timer-btn">50:10</button>
+                </div>
             </nav>
         </section>
 
