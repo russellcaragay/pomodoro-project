@@ -1,0 +1,75 @@
+/* STARTED: SEPTEMBER 13, 2022 */
+
+:root {
+  --main-background-color: #dff6ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-background-color);
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+}
+
+/* Header Section */
+.theme-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+}
+
+.theme-btn:hover {
+  cursor: pointer;
+  background-color: #e9e7e7;
+}
+
+.theme-icon {
+  padding: 4px;
+}
+
+header {
+  text-align: center;
+  padding-top: 4%;
+  margin: 0;
+}
+
+.focus-cycle {
+  font-size: 0.8rem;
+  margin: 10px 0 0 0;
+}
+
+/* Main Timer Section */
+.timer-section {
+  padding: 0 10%;
+}
+.main-timer {
+  background: url(background/focus-day.gif);
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  height: 300px;
+  max-width: 600px;
+  border-radius: 8px;
+  text-align: center;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+/* .main-timer {
+  background: url(background/focus-day.gif);
+  height: 500px;
+  opacity: 0.85;
+  
+} */
