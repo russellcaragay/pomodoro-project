@@ -2,6 +2,7 @@
 
 :root {
   --main-background-color: #dff6ff;
+  --secondary-background-color: #5389b2;
   --rest-btn-color: #5baf59;
   --rest-btn-hover: #55aa54;
 }
@@ -144,4 +145,18 @@ header {
 
 .rest-btn:hover {
   background-color: var(--rest-btn-hover);
+}
+
+/* TASKS Section */
+.task-section {
+  text-align: center;
+  background-color: var(--secondary-background-color);
+  margin-top: 40px;
+}
+
+.task-header {
+  font-weight: 500;
+  padding: 30px;
+  font-size: 1.4rem;
+  margin: 0;
 }
