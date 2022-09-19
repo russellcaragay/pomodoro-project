@@ -3,6 +3,9 @@
 :root {
   --main-background-color: #dff6ff;
   --secondary-background-color: #5389b2;
+  --tertiary-background-color: #133643;
+  --font-color: black;
+  --font-header-color: black;
   --rest-btn-color: #5baf59;
   --rest-btn-hover: #55aa54;
   --scrollbar-color: #396e96;
@@ -44,6 +47,7 @@ body {
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 800;
+  color: var(--font-header-color);
 }
 
 button:hover {
@@ -78,6 +82,7 @@ header {
 .focus-cycle {
   font-size: 0.8rem;
   margin: 10px 0 0 0;
+  color: var(--font-color);
 }
 
 /* Main Timer Section */
@@ -179,6 +184,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 40px;
 }
 
 .task-header {
@@ -186,11 +192,11 @@ header {
   padding: 30px;
   font-size: 1.4rem;
   margin: 0;
+  color: var(--font-color);
 }
 
 .tasks-list {
   max-height: 400px;
-  height: 250px;
   overflow: auto;
   margin: auto;
 }
@@ -241,4 +247,78 @@ input[type="checkbox"] {
 
 .remove-icon:hover {
   color: rgb(221, 65, 65);
+}
+
+.task-append {
+  background-color: var(--tertiary-background-color);
+  margin: 15px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border-style: none;
+  border-bottom: 0.5px solid white;
+  text-align: center;
+  color: white;
+  transition: 0.5s;
+  max-width: 200px;
+  width: 150px;
+  font-style: normal;
+  padding: 4px;
+  font-size: 0.8rem;
+  margin: 15px 5px;
+}
+
+input[type="text"]:focus {
+  border: none;
+}
+
+.append-btn {
+  border-style: none;
+  font-size: 0.7rem;
+  border-radius: 2px;
+  padding: 5px 15px;
+  background-color: white;
+}
+.append-btn:hover {
+  background-color: rgb(228, 228, 228);
+}
+
+/* Quote Section */
+.quote-section {
+  text-align: center;
+  padding: 25px 0;
+}
+
+blockquote {
+  margin: 0;
+}
+
+blockquote p {
+  font-style: italic;
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--font-color);
+}
+
+cite {
+  font-size: 0.9rem;
+  color: var(--font-color);
+}
+
+cite::before {
+  content: "-";
+}
+
+/* Footer Section */
+footer p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+  font-style: italic;
+  color: var(--font-color);
 }
