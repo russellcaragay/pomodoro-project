@@ -301,7 +301,8 @@ blockquote p {
   font-style: italic;
   margin: 0;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  padding: 0 3px;
   color: var(--font-color);
 }
 
@@ -321,4 +322,35 @@ footer p {
   text-align: center;
   font-style: italic;
   color: var(--font-color);
+}
+
+@media (min-width: 768px) {
+  .main-function {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 30px;
+  }
+  .timer-section {
+    flex-grow: 2;
+    padding: 0;
+  }
+  .task-section {
+    flex-grow: 1;
+    margin: 0;
+    border-radius: 10px;
+    max-width: 40%;
+  }
+
+  .main-timer {
+    height: 350px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .task-section {
+    max-width: 30%;
+  }
 }

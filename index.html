@@ -21,42 +21,46 @@
         <p class="focus-cycle">CYCLE: 1</p>
     </header>
     <main>
-        <!-- Main Timer Section -->
-        <section class="timer-section ">
-            <div class="main-timer">
-                <h2 id="time" class="timer-time">50:00</h2>
-                <button class="start-btn">START</button>
-            </div>
-            <nav>
-                <!-- For music and timer restart -->
-                <div class="config-restart">
-                    <button class="config-btn"><i class="fa-solid fa-arrow-rotate-right "></i></button>
-                    <button class="config-btn"><i class="fa-solid fa-volume-off "></i></button>
+        <!-- Main Function Section -->
+        <section class="main-function">
+            <!-- Main Timer Section -->
+            <section class="timer-section ">
+                <div class="main-timer">
+                    <h2 id="time" class="timer-time">50:00</h2>
+                    <button class="start-btn">START</button>
                 </div>
+                <nav>
+                    <!-- For music and timer restart -->
+                    <div class="config-restart">
+                        <button class="config-btn"><i class="fa-solid fa-arrow-rotate-right "></i></button>
+                        <button class="config-btn"><i class="fa-solid fa-volume-off "></i></button>
+                    </div>
 
-                <!-- For pomodoro focus and rest time -->
-                <div class="config-timer">
-                    <button class="timer-btn">25:05</button>
-                    <button class="timer-btn rest-btn">REST</button>
-                    <button class="timer-btn">50:10</button>
+                    <!-- For pomodoro focus and rest time -->
+                    <div class="config-timer">
+                        <button class="timer-btn">25:05</button>
+                        <button class="timer-btn rest-btn">REST</button>
+                        <button class="timer-btn">50:10</button>
+                    </div>
+                </nav>
+            </section>
+
+            <!-- Tasks Section -->
+            <section class="task-section">
+                <h2 class="task-header">TASKS FOR TODAY</h2>
+                <div class="tasks-list">
+                    <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 1</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
+                    <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 2</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
+                    <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 3</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
+                    <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 4</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
                 </div>
-            </nav>
+                <div class="task-append">
+                    <input type="text" placeholder="Add Task Here" class="new-task"><br>
+                    <button class="append-btn">ADD</button>
+                </div>
+            </section>
         </section>
-
-        <!-- Tasks Section -->
-        <section class="task-section">
-            <h2 class="task-header">TASKS FOR TODAY</h2>
-            <div class="tasks-list">
-                <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 1</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
-                <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 2</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
-                <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 3</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
-                <div class="task-container"><label><input type="checkbox"><p class="task-name">Task 4</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
-            </div>
-            <div class="task-append">
-                <input type="text" placeholder="Add Task Here" class="new-task"><br>
-                <button class="append-btn">ADD</button>
-            </div>
-        </section>
+        
 
         <!-- Quotes Section -->
         <section class="quote-section">
