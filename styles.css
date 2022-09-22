@@ -196,7 +196,7 @@ header {
 }
 
 .tasks-list {
-  max-height: 400px;
+  max-height: 300px;
   overflow: auto;
   margin: auto;
 }
@@ -325,32 +325,111 @@ footer p {
 }
 
 @media (min-width: 768px) {
+  header {
+    padding-top: 1%;
+  }
+  .focus-cycle {
+    margin: 5px 0;
+  }
+  /* Main Timer Section */
   .main-function {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 20px;
     padding: 0 30px;
   }
+
   .timer-section {
     flex-grow: 2;
     padding: 0;
+    margin: 0;
+  }
+
+  /* Configuration buttons */
+  .config-btn {
+    margin-bottom: 0;
+  }
+  .config-timer {
+    margin-top: 0;
+  }
+  /* Task Section */
+  .task-header {
+    padding: 15px;
   }
   .task-section {
     flex-grow: 1;
     margin: 0;
     border-radius: 10px;
-    max-width: 40%;
+    height: 100%;
+    max-width: 250px;
+    padding: 35px 10px;
+  }
+
+  .tasks-list {
+    max-height: 200px;
+    height: 200px;
+  }
+
+  .task-container {
+    margin: 10px;
+    width: 230px;
+  }
+
+  .task-append {
+    width: 200px;
+    height: 80px;
+    padding: 0;
   }
 
   .main-timer {
     height: 350px;
     max-width: 100%;
   }
+
+  /* Quote Section */
+  .quote-section {
+    padding-top: 5px;
+    padding-bottom: 0;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
 }
 
+/* large devices */
 @media (min-width: 992px) {
   .task-section {
     max-width: 30%;
+  }
+
+  /* Quote Section */
+  .quote-section {
+    padding-top: 5%;
+    padding-bottom: 25px;
+  }
+
+  blockquote p {
+    font-size: 1.5rem;
+  }
+}
+
+/* mid laptop sizes */
+@media (min-width: 1070px) {
+  body {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
   }
 }
