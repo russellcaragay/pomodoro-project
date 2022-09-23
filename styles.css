@@ -404,6 +404,9 @@ footer p {
     max-width: 30%;
   }
 
+  .timer-time {
+    font-size: 4rem;
+  }
   /* Quote Section */
   .quote-section {
     padding-top: 5%;
@@ -417,19 +420,53 @@ footer p {
 
 /* mid laptop sizes */
 @media (min-width: 1070px) {
+  .theme-btn {
+    top: 50px;
+  }
+
   body {
     max-width: 1060px;
+    margin-top: 2%;
+    padding: 20px;
     margin: 0 auto;
+    scale: 1.1;
+    position: relative;
+  }
+
+  .quote-section {
+    padding-top: 2%;
+    padding-bottom: 10px;
   }
 
   footer p {
     font-size: 0.8rem;
-    bottom: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
   }
+  button {
+    position: relative;
+  }
+  input {
+    position: relative;
+  }
+  /* h1 {
+    font-size: 2.3rem;
+  }
+  body {
+    max-width: 1060px;
+    margin-top: 2%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .main-function {
+    gap: 40px;
+  }
+
+  .quote-section {
+    padding-top: 2%;
+    padding-bottom: 30px;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  } */
 }
