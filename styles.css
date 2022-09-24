@@ -6,8 +6,8 @@
   --tertiary-background-color: #133643;
   --font-color: black;
   --font-header-color: black;
-  --rest-btn-color: #5baf59;
-  --rest-btn-hover: #55aa54;
+  --change-btn-color: #5baf59;
+  --change-btn-hover: #55aa54;
   --scrollbar-color: #396e96;
   --scrollbar-hover-color: #35668c;
 }
@@ -90,7 +90,7 @@ header {
   padding: 0 10%;
 }
 .main-timer {
-  background: url(background/focus-day.gif);
+  background-image: url(background/focus-day.gif);
   margin: 0 auto;
   background-repeat: no-repeat;
   opacity: 0.95;
@@ -98,8 +98,8 @@ header {
   max-width: 600px;
   border-radius: 8px;
   text-align: center;
-  background-position-x: center;
-  background-position-y: center;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -166,13 +166,13 @@ header {
   background-color: #e4e3d9;
 }
 
-.rest-btn {
-  background-color: var(--rest-btn-color);
+.change-btn {
+  background-color: var(--change-btn-color);
   font-size: 1.2rem;
 }
 
-.rest-btn:hover {
-  background-color: var(--rest-btn-hover);
+.change-btn:hover {
+  background-color: var(--change-btn-hover);
 }
 
 /* TASKS Section */
