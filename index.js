@@ -1,6 +1,20 @@
 // STARTED: SEPTEMBER 13, 2022
 var documentStyle = document.documentElement.style;
 
+var hours = new Date().getHours();
+
+if (hours >= 6 && hours <= 18){
+    var theme = "day";
+    dayFocus_colors()
+}
+
+else{
+    var theme = "night";
+    nightFocus_colors()
+}
+
+
+
 // Functions for each theme
 function nightFocus_colors(){
     documentStyle.setProperty('--main-background-color', '#252F35');
@@ -15,6 +29,8 @@ function nightFocus_colors(){
     document.querySelector('.main-timer').style.backgroundImage="url(background/focus-night.gif)";
     document.querySelector('h1').textContent = "FOCUS";
     document.querySelector('.change-btn').textContent = "REST";
+    document.querySelector("#theme").classList.remove("fa-moon");
+    document.querySelector("#theme").classList.add("fa-sun");
 }
 
 function nightRest_colors(){
@@ -30,6 +46,8 @@ function nightRest_colors(){
     document.querySelector('.main-timer').style.backgroundImage="url(background/rest-night.gif)";
     document.querySelector('h1').textContent = "REST";
     document.querySelector('.change-btn').textContent = "FOCUS";
+    document.querySelector("#theme").classList.remove("fa-moon");
+    document.querySelector("#theme").classList.add("fa-sun");
 }
 
 function dayFocus_colors(){
@@ -45,20 +63,24 @@ function dayFocus_colors(){
     document.querySelector('.main-timer').style.backgroundImage="url(background/focus-day.gif)";
     document.querySelector('h1').textContent = "FOCUS";
     document.querySelector('.change-btn').textContent = "REST";
+    document.querySelector("#theme").classList.add("fa-moon");
+    document.querySelector("#theme").classList.remove("fa-sun");
 }
 
 // not yet fixed
 function dayRest_colors(){
-    documentStyle.setProperty('--main-background-color', '#dff6ff');
-    documentStyle.setProperty('--secondary-background-color', '#5389b2');
-    documentStyle.setProperty('--tertiary-background-color', '#133643');
+    documentStyle.setProperty('--main-background-color', '#DFFFE2');
+    documentStyle.setProperty('--secondary-background-color', '#5BAF59');
+    documentStyle.setProperty('--tertiary-background-color', '#134332');
     documentStyle.setProperty('--font-color', 'black');
     documentStyle.setProperty('--font-header-color', 'black');
-    documentStyle.setProperty('--change-btn-color', '#5baf59');
-    documentStyle.setProperty('--change-btn-hover', '#55aa54');
-    documentStyle.setProperty('--scrollbar-color', '#396e96');
-    documentStyle.setProperty('--scrollbar-hover-color', '#35668c');
-    document.querySelector('.main-timer').style.backgroundImage="url(background/focus-day.gif)";
+    documentStyle.setProperty('--change-btn-color', '#5389B2');
+    documentStyle.setProperty('--change-btn-hover', '#5589B2');
+    documentStyle.setProperty('--scrollbar-color', '#134332');
+    documentStyle.setProperty('--scrollbar-hover-color', '#134332');
+    document.querySelector('.main-timer').style.backgroundImage="url(background/rest-day.gif)";
     document.querySelector('h1').textContent = "REST";
     document.querySelector('.change-btn').textContent = "FOCUS";
+    document.querySelector("#theme").classList.add("fa-moon");
+    document.querySelector("#theme").classList.remove("fa-sun");
 }
