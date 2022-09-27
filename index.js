@@ -13,7 +13,38 @@ else{
     nightFocus_colors()
 }
 
+// Countdown
+//will update pa
+var pomoMinute = 50;
 
+document.getElementById("btn1").addEventListener("click", function(){
+  pomoMinute = 20;
+  console.log("min is 20");
+})
+
+document.getElementById("btn").addEventListener("click", function(){
+  let timer = pomoMinute*60;
+  startTime(timer);
+})
+
+function startTime(time){
+  let interval = setInterval(timer,1000);
+  function timer(){
+      const minutes = Math.floor(time/60);
+      let seconds = time % 60;
+
+      if (seconds < 10){
+        seconds = "0" + seconds;
+      }
+      document.getElementById('time').innerHTML =  `${minutes}:${seconds}`;
+      time--;
+
+    //set the time to zero
+     if (time < 0) {
+        clearInterval(interval);
+      }
+  }
+}
 
 // Functions for each theme
 function nightFocus_colors(){
