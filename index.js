@@ -67,7 +67,7 @@ function dayFocus_colors(){
     document.querySelector("#theme").classList.remove("fa-sun");
 }
 
-// not yet fixed
+
 function dayRest_colors(){
     documentStyle.setProperty('--main-background-color', '#DFFFE2');
     documentStyle.setProperty('--secondary-background-color', '#5BAF59');
