@@ -2,27 +2,57 @@
 var documentStyle = document.documentElement.style;
 
 var hours = new Date().getHours();
+var mode = "focus";
+var cycle = 1;
 
+// system will automatically change the theme
 if (hours >= 6 && hours <= 18){
-    var theme = "day";
+  var theme = "day";
     dayFocus_colors()
 }
 
 else{
-    var theme = "night";
+  var theme = "night";
     nightFocus_colors()
 }
+
+document.getElementById("theme").addEventListener("click",function(){
+  if (theme == "night"){
+    theme = "day"
+      if (mode == "focus"){
+       dayFocus_colors();
+      }
+      else {
+        dayRest_colors();
+      }
+  }
+  else {
+    theme = "night"
+    if (mode == "focus"){
+     nightFocus_colors();
+    }
+    else {
+      nightRest_colors();
+    }
+}
+})
 
 // Countdown
 //will update pa
 var pomoMinute = 50;
+var pomoMode = "50";
 
-document.getElementById("btn1").addEventListener("click", function(){
-  pomoMinute = 20;
-  console.log("min is 20");
+document.getElementById("time-25").addEventListener("click", function(){
+  pomoMinute = 25;
+  pomoMode = "25";
 })
 
-document.getElementById("btn").addEventListener("click", function(){
+document.getElementById("time-50").addEventListener("click", function(){
+  pomoMinute = 50;
+  console.log("min is 50");
+})
+
+document.getElementById("start-btn").addEventListener("click", function(){
   let timer = pomoMinute*60;
   startTime(timer);
 })
@@ -39,12 +69,28 @@ function startTime(time){
       document.getElementById('time').innerHTML =  `${minutes}:${seconds}`;
       time--;
 
-    //set the time to zero
-     if (time < 0) {
-        clearInterval(interval);
+      if (pomoMode == "25"){
+        if (time == 0) {
+          clearInterval(interval);
+          alert("TIME IS UP!");
+          
+          if (mode == "focus"){
+            pomoMinute = 5;
+            mode = "rest";
+          }
+          else {
+            pomoMinute = 25;
+            mode = "focus";
+
+          }
+        }
       }
+
   }
 }
+
+
+
 
 // Functions for each theme
 function nightFocus_colors(){
