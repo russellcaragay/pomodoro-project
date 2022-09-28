@@ -34,22 +34,44 @@ document.getElementById("theme").addEventListener("click",function(){
     else {
       nightRest_colors();
     }
-}
-})
+  }
+});
 
 // Countdown
-//will update pa
 var pomoMinute = 50;
 var pomoMode = "50";
 
+// Changes the pomodoro timer configuration to 25 mins focus and 5 mins rest
 document.getElementById("time-25").addEventListener("click", function(){
   pomoMinute = 25;
   pomoMode = "25";
 })
 
+// Changes the pomodoro timer configuration to 50 mins focus and 10 mins rest
 document.getElementById("time-50").addEventListener("click", function(){
   pomoMinute = 50;
-  console.log("min is 50");
+  pomoMode = "50";
+})
+
+var changeBtn = document.querySelector(".change-btn");
+changeBtn.addEventListener("click", function(){
+  if(changeBtn.textContent == "REST"){
+    if (pomoMode == "25"){
+        pomoMinute = 5;
+    }
+    else{
+        pomoMinute = 10;
+    }
+  }
+  else {
+    if (pomoMode == "25"){
+      pomoMinute = 25;
+    }
+    else{
+      pomoMinute = 50;
+    }
+  }
+  postTimerMode()
 })
 
 document.getElementById("start-btn").addEventListener("click", function(){
@@ -69,28 +91,69 @@ function startTime(time){
       document.getElementById('time').innerHTML =  `${minutes}:${seconds}`;
       time--;
 
-      if (pomoMode == "25"){
-        if (time == 0) {
-          clearInterval(interval);
-          alert("TIME IS UP!");
-          
-          if (mode == "focus"){
-            pomoMinute = 5;
-            mode = "rest";
-          }
-          else {
-            pomoMinute = 25;
-            mode = "focus";
-
+      if (time == 0){
+        clearInterval(interval);
+        if (pomoMode == "25"){
+            if (mode == "focus"){
+              pomoMinute = 5;
+              cycle++;
+              postTimerMode();
+            }
+            else {
+              pomoMinute = 25;
+              postTimerMode();
+            }
           }
         }
+        else {
+          if (mode == "focus"){
+            pomoMinute = 10;
+            cycle++;
+            postTimerMode();
+          }
+          else {
+            pomoMinute = 50;
+            postTimerMode();
+          }
+        }
+        alert("TIME IS UP!");
       }
+  }
 
+//Function to identify what mode will occur next
+function postTimerMode(){
+  if (mode == "focus"){
+    mode = "rest";
+    document.querySelector(".focus-cycle").textContent = "CYCLE: " + cycle;
+    themeIdentifier();
+  }
+  else {
+    mode = "focus";
+    themeIdentifier();
   }
 }
 
-
-
+// Function to identify what theme the system will use
+function themeIdentifier(){
+  if (theme == "day"){
+    theme = "day"
+      if (mode == "focus"){
+       dayFocus_colors();
+      }
+      else {
+        dayRest_colors();
+      }
+  }
+  else {
+    theme = "night"
+    if (mode == "focus"){
+     nightFocus_colors();
+    }
+    else {
+      nightRest_colors();
+    }
+  }
+}
 
 // Functions for each theme
 function nightFocus_colors(){
