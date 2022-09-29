@@ -187,6 +187,10 @@ header {
   padding-bottom: 40px;
 }
 
+input[type="checkbox"]:checked + p {
+  text-decoration: line-through;
+}
+
 .task-header {
   font-weight: 500;
   padding: 30px;

@@ -5,26 +5,9 @@ var hours = new Date().getHours();
 var mode = "focus";
 var cycle = 1;
 
-var try1 = "hello";
+// Variables for creating tasks for the todo list
 var list = document.getElementById("taskList");
-var newParagraph = document.createElement('p').classList.add("task-name").innerHTML = "hello";
-
-
-var newInput = document.createElement("INPUT").setAttribute("type", "checkbox").appendChild(newTask);
-var newLabel = document.createElement('label');
-var newDiv = document.createElement('div').classList.add("task-container");
-var newIcon = document.createElement('i').classList.add("fa-solid fa-circle-minus remove-icon");
-
-var taskLabel = newLabel.appendChild(newInput);
-var taskButtons = document.createElement('button').appendChild(newIcon);
-
-function try1(){
-  newDiv.appendChild(taskLabel);
-  newDiv.appendChild(taskButtons);
-}
-
-//<div class="task-container"><label><input type="checkbox"><p class="task-name">Task 1</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
-
+var taskInput = document.getElementById("newTask");
 
 // system will automatically change the theme
 if (hours >= 6 && hours <= 18){
@@ -36,6 +19,53 @@ else{
   var theme = "night";
     nightFocus_colors()
 }
+
+
+
+document.getElementById("append-btn").addEventListener("click", function(){
+
+  if(taskInput.value == '' || taskInput.value == ' '){
+    alert("No task input!");
+    return;
+  }
+
+  var newDiv = document.createElement('div')
+  newDiv.classList.add("task-container");
+
+  // For Task Labels
+  var newInput = document.createElement("input")
+  newInput.setAttribute("type", "checkbox");
+
+  var newParagraph = document.createElement('p');
+  newParagraph.classList.add("task-name");
+  newParagraph.innerText = taskInput.value;
+
+  var newLabel = document.createElement('label');
+  newLabel.append(newInput, newParagraph);
+
+  //For Action Icons
+  var newIcon = document.createElement('i')
+  newIcon.classList.add("fa-solid", "fa-circle-minus" , "remove-icon");
+
+  var taskButton = document.createElement('button');
+  taskButton.classList.add("remove-btn");
+  taskButton.appendChild(newIcon);
+
+  newDiv.append(newLabel,taskButton);
+
+  list.appendChild(newDiv);
+
+  taskInput.value = " ";
+})
+
+// Event Listener for Delete Button
+list.addEventListener('click', function(e){
+  if(e.target.classList.contains('fa-solid')){
+    e.target.parentElement.parentElement.remove();
+  }
+})
+
+
 
 document.getElementById("theme").addEventListener("click",function(){
   if (theme == "night"){
@@ -139,7 +169,7 @@ function startTime(time){
         }
         alert("TIME IS UP!");
       }
-  }
+}
 
 //Function to identify what mode will occur next
 function postTimerMode(){
