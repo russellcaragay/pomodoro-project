@@ -5,6 +5,27 @@ var hours = new Date().getHours();
 var mode = "focus";
 var cycle = 1;
 
+var try1 = "hello";
+var list = document.getElementById("taskList");
+var newParagraph = document.createElement('p').classList.add("task-name").innerHTML = "hello";
+
+
+var newInput = document.createElement("INPUT").setAttribute("type", "checkbox").appendChild(newTask);
+var newLabel = document.createElement('label');
+var newDiv = document.createElement('div').classList.add("task-container");
+var newIcon = document.createElement('i').classList.add("fa-solid fa-circle-minus remove-icon");
+
+var taskLabel = newLabel.appendChild(newInput);
+var taskButtons = document.createElement('button').appendChild(newIcon);
+
+function try1(){
+  newDiv.appendChild(taskLabel);
+  newDiv.appendChild(taskButtons);
+}
+
+//<div class="task-container"><label><input type="checkbox"><p class="task-name">Task 1</p></label><button class="remove-btn"><i class="fa-solid fa-circle-minus remove-icon"></i></button></div>
+
+
 // system will automatically change the theme
 if (hours >= 6 && hours <= 18){
   var theme = "day";
