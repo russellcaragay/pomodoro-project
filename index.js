@@ -3,7 +3,12 @@ var documentStyle = document.documentElement.style;
 
 var hours = new Date().getHours();
 var mode = "focus";
-var cycle = 1;
+var cycle = 0;
+
+var alarmSound = "on";
+//alarm = new Audio('sound/alarm.mp3'); 
+
+var alarm = new Audio("https://www.freespecialeffects.co.uk/soundfx/animals/duck1.wav");
 
 // Variables for creating tasks for the todo list
 var list = document.getElementById("taskList");
@@ -133,17 +138,16 @@ document.getElementById("start-btn").addEventListener("click", function(){
 function startTime(time){
   let interval = setInterval(timer,1000);
   function timer(){
-      const minutes = Math.floor(time/60);
-      let seconds = time % 60;
+    const minutes = Math.floor(time/60);
+    let seconds = time % 60;
 
-      if (seconds < 10){
-        seconds = "0" + seconds;
-      }
-      document.getElementById('time').innerHTML =  `${minutes}:${seconds}`;
-      time--;
+    if (seconds < 10){
+      seconds = "0" + seconds;
+    }
+    document.getElementById('time').innerHTML =  `${minutes}:${seconds}`;
+    time--;
 
-      if (time == 0){
-        clearInterval(interval);
+    if (time < 0){
         if (pomoMode == "25"){
             if (mode == "focus"){
               pomoMinute = 5;
@@ -155,20 +159,31 @@ function startTime(time){
               postTimerMode();
             }
           }
+      else {
+        if (mode == "focus"){
+          pomoMinute = 10;
+          cycle++;
+          postTimerMode();
         }
         else {
-          if (mode == "focus"){
-            pomoMinute = 10;
-            cycle++;
-            postTimerMode();
-          }
-          else {
-            pomoMinute = 50;
-            postTimerMode();
-          }
+          pomoMinute = 50;
+          postTimerMode();
         }
-        alert("TIME IS UP!");
       }
+
+      clearInterval(interval);
+
+      if (alarmSound == 'on'){
+        alarm.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+    alarm.play();
+        console.log("p");
+      }
+      alert("TIME IS UP!");
+    }
+  }
 }
 
 //Function to identify what mode will occur next
