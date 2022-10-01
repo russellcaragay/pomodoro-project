@@ -5,8 +5,8 @@ var hours = new Date().getHours();
 var mode = "focus";
 var cycle = 0;
 
+//Initialization of sounds
 var alarmSound = "on";
-
 var alarm = new Audio("sound/alarm.mp3");
 
 // Variables for creating tasks for the todo list
@@ -24,8 +24,13 @@ else{
     nightFocus_colors()
 }
 
+// Countdown
+var pomoMinute = 50;
+var pomoMode = "50";
 
 
+//-----Event Listeners-----
+//Event Listener for adding new task
 document.getElementById("append-btn").addEventListener("click", function(){
 
   if(taskInput.value == '' || taskInput.value == ' '){
@@ -69,8 +74,7 @@ list.addEventListener('click', function(e){
   }
 })
 
-
-
+// Event Listener to change theme
 document.getElementById("theme").addEventListener("click",function(){
   if (theme == "night"){
     theme = "day"
@@ -91,10 +95,6 @@ document.getElementById("theme").addEventListener("click",function(){
     }
   }
 });
-
-// Countdown
-var pomoMinute = 50;
-var pomoMode = "50";
 
 // Changes the pomodoro timer configuration to 25 mins focus and 5 mins rest
 document.getElementById("time-25").addEventListener("click", function(){
@@ -131,6 +131,7 @@ changeBtn.addEventListener("click", function(){
   postTimerMode()
 })
 
+// Event listener to start the timer
 document.getElementById("start-btn").addEventListener("click", function(){
   let timer = pomoMinute*60;
   document.getElementById("start-btn").disabled = true; 
@@ -145,6 +146,7 @@ document.getElementById("start-btn").addEventListener("click", function(){
   startTime(timer);
 })
 
+//Function for timer
 function startTime(time){
   let interval = setInterval(timer,1000);
   function timer(){
@@ -195,13 +197,6 @@ function startTime(time){
       document.querySelectorAll(".timer-btn")[2].disabled = false; 
     }
   }
-}
-
-function alarmSound(){
-  for(i=0;i<15;i++){
-    alarm.play();
-    console.log("p");
-  };
 }
 
 //Function to identify what mode will occur next
