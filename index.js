@@ -28,6 +28,33 @@ else{
 var pomoMinute = 50;
 var pomoMode = "50";
 
+//List of motivational quotes
+var quoteblock = [
+  "Experience is the name everyone gives to their mistakes",
+  "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.",
+  "Allow Yourself To Be A Beginner, No One Starts Off Being Excellent",
+  "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
+  "Measuring programming progree by lines of code is like measuring aircraft building progree by weight.",
+  "People don't care about what you say, they care about what you build.",
+  "If you optimize everything, you will always be unhappy.",
+  "The trouble with programmers is that you can never tell what a programmer is doing until it's too late.",
+  "Everyday life is like programming, I guess.If you love something you can put beauty on it.",
+  "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live"
+]
+
+//authors of motivational quotes
+var author = [
+  "Oscar Wilde",
+  "Antoine de Saint-Exupery",
+  "Wendy Flynn",
+  "Dan Salomon",
+  "Bill Gates",
+  "Mark Zuckerberg",
+  "Donald Knuth",
+  "Seymour Cray",
+  "Donald Knuth",
+  "John Woods"
+]
 
 //-----Event Listeners-----
 //Event Listener for adding new task
@@ -234,6 +261,12 @@ function themeIdentifier(){
       nightRest_colors();
     }
   }
+}
+//Function to get random quote
+function quotation(){
+  var randomNumber = Math.floor(Math.random()*10);
+  document.getElementById("quote").textContent = quoteblock[randomNumber];
+  document.getElementById("author").textContent = author[randomNumber];
 }
 
 // Functions for each theme
