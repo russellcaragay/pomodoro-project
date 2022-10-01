@@ -6,9 +6,8 @@ var mode = "focus";
 var cycle = 0;
 
 var alarmSound = "on";
-//alarm = new Audio('sound/alarm.mp3'); 
 
-var alarm = new Audio("https://www.freespecialeffects.co.uk/soundfx/animals/duck1.wav");
+var alarm = new Audio("sound/alarm.mp3");
 
 // Variables for creating tasks for the todo list
 var list = document.getElementById("taskList");
@@ -101,12 +100,14 @@ var pomoMode = "50";
 document.getElementById("time-25").addEventListener("click", function(){
   pomoMinute = 25;
   pomoMode = "25";
+  document.getElementById('time').innerHTML =  `${pomoMinute}:${"00"}`;
 })
 
 // Changes the pomodoro timer configuration to 50 mins focus and 10 mins rest
 document.getElementById("time-50").addEventListener("click", function(){
   pomoMinute = 50;
   pomoMode = "50";
+  document.getElementById('time').innerHTML =  `${pomoMinute}:${"00"}`;
 })
 
 var changeBtn = document.querySelector(".change-btn");
@@ -132,6 +133,15 @@ changeBtn.addEventListener("click", function(){
 
 document.getElementById("start-btn").addEventListener("click", function(){
   let timer = pomoMinute*60;
+  document.getElementById("start-btn").disabled = true; 
+  document.querySelectorAll(".timer-btn")[0].disabled = true; 
+  document.querySelectorAll(".timer-btn")[1].disabled = true; 
+  document.querySelectorAll(".timer-btn")[2].disabled = true; 
+  document.getElementById("start-btn").classList.add("start-effect");
+  setTimeout(function() {
+    document.getElementById("start-btn").classList.remove("start-effect");
+  }, 100);
+  alarm.pause();
   startTime(timer);
 })
 
@@ -148,6 +158,7 @@ function startTime(time){
     time--;
 
     if (time < 0){
+      document.getElementById('time').innerHTML =  "TIME IS UP!";
         if (pomoMode == "25"){
             if (mode == "focus"){
               pomoMinute = 5;
@@ -170,24 +181,33 @@ function startTime(time){
           postTimerMode();
         }
       }
-
       clearInterval(interval);
-
-      if (alarmSound == 'on'){
-        alarm.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-    alarm.play();
-        console.log("p");
-      }
-      alert("TIME IS UP!");
+      alarm.loop = true;
+      alarm.play();
+      alert("Time is Up!");
+      setTimeout(function() {
+        alarm.pause();
+      }, 8000);
+      alarm.pause();
+      document.getElementById("start-btn").disabled = false; 
+      document.querySelectorAll(".timer-btn")[0].disabled = false; 
+      document.querySelectorAll(".timer-btn")[1].disabled = false; 
+      document.querySelectorAll(".timer-btn")[2].disabled = false; 
     }
   }
 }
 
+function alarmSound(){
+  for(i=0;i<15;i++){
+    alarm.play();
+    console.log("p");
+  };
+}
+
 //Function to identify what mode will occur next
 function postTimerMode(){
+  document.getElementById('time').innerHTML =  `${pomoMinute}:${"00"}`;
+  alarm.pause();
   if (mode == "focus"){
     mode = "rest";
     document.querySelector(".focus-cycle").textContent = "CYCLE: " + cycle;
@@ -237,6 +257,8 @@ function nightFocus_colors(){
     document.querySelector('.change-btn').textContent = "REST";
     document.querySelector("#theme").classList.remove("fa-moon");
     document.querySelector("#theme").classList.add("fa-sun");
+    document.querySelectorAll(".timeBtn")[0].classList.remove("hide-btn");
+    document.querySelectorAll(".timeBtn")[1].classList.remove("hide-btn");
 }
 
 function nightRest_colors(){
@@ -254,6 +276,10 @@ function nightRest_colors(){
     document.querySelector('.change-btn').textContent = "FOCUS";
     document.querySelector("#theme").classList.remove("fa-moon");
     document.querySelector("#theme").classList.add("fa-sun");
+    document.querySelectorAll(".timeBtn")[0].classList.add("hide-btn");
+    document.querySelectorAll(".timeBtn")[1].classList.add("hide-btn");
+
+
 }
 
 function dayFocus_colors(){
@@ -271,6 +297,8 @@ function dayFocus_colors(){
     document.querySelector('.change-btn').textContent = "REST";
     document.querySelector("#theme").classList.add("fa-moon");
     document.querySelector("#theme").classList.remove("fa-sun");
+    document.querySelectorAll(".timeBtn")[0].classList.remove("hide-btn");
+    document.querySelectorAll(".timeBtn")[1].classList.remove("hide-btn");
 }
 
 
@@ -289,4 +317,6 @@ function dayRest_colors(){
     document.querySelector('.change-btn').textContent = "FOCUS";
     document.querySelector("#theme").classList.add("fa-moon");
     document.querySelector("#theme").classList.remove("fa-sun");
+    document.querySelectorAll(".timeBtn")[0].classList.add("hide-btn");
+    document.querySelectorAll(".timeBtn")[1].classList.add("hide-btn");
 }

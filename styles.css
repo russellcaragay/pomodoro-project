@@ -124,6 +124,10 @@ header {
   margin-bottom: 5%;
 }
 
+.start-effect {
+  border: 2px inset;
+}
+
 .start-btn:hover {
   background-color: #e8be17;
 }
@@ -160,6 +164,9 @@ header {
   border-radius: 5px;
   font-weight: 600;
   font-size: 1rem;
+}
+.hide-btn {
+  visibility: hidden;
 }
 
 .timer-btn:hover {
